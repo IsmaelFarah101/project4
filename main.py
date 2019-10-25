@@ -26,7 +26,7 @@ def show_menu():
             bookmarkQuestion = input('Do you want to save the restaurants and events(y/n)?: ')    
             break
         elif menu == 2:
-            bookmark_question = input('Enter 1 to get all Events \nEnter 2 to search Event by name: \nEnter 3 to get all Restaurants \n')
+            bookmark_question = input('Enter 1 to get all Events \nEnter 2 to search Event by name: \nEnter 3 to get all Restaurants \nEnter 4 ')
             break    
         else:
             menu = int(input('Enter 1 to Search New Events/Restaurants/Weather: \nEnter 2 to Search Through Bookmarks: '))
@@ -42,6 +42,7 @@ def show_menu():
     else:
         print()
 def getInput():
+    
     city = input(("City: "))
     country_code = input(("Country Code: "))
     keyword = input(("Enter keyword for event: "))
