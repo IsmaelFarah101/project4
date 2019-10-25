@@ -15,6 +15,7 @@ class RestaurantData():
         return f'Name: {self.name} Location: {self.location} Type: {self.restaurant_type} Rating: {self.rating} Price: {self.price}\n'
         
 
+
 def main(location,term):
     try:
         ##query and header for yelp api sorting by rating
