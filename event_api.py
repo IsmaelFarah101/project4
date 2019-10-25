@@ -12,8 +12,6 @@ def getEvents(location, keyword):
         url = 'http://api.eventful.com/json/events/search?'
         params = {'keyword:' : keyword, 'location' : location, 'page_size' : 5, 'app_key' : event_key}
         data = requests.get(url, params=params).json()
-        if data.len() == 0:
-            raise ValueError("No events in "+location)
         events_data = data['events']['event']
 
         event_list = []
@@ -33,3 +31,4 @@ def getEvents(location, keyword):
 
     except Exception as e:
         print('Please enter valid city name')
+        print(e)

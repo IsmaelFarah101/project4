@@ -13,7 +13,10 @@ def create_table():
 
 def show_all_event():
     try:
-        return Event.get()
+        events = Event.select()
+        for event in events:
+            print(event.name)
+        
     except Exception as e:
         print(e)
 ##adding new item database

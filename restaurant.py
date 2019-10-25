@@ -10,10 +10,9 @@ def create_table():
 
 def show_all_restaurant():
     try:
-        data =  Restaurant.get()
-        for restaurant in data:
-                print(restaurant)
-
+       restaurants = Restaurant.select()
+       for restaurant in restaurants:
+               print(restaurant.name)
     except Exception as e:
         print("couldn't show all restaurant")
         
