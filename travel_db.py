@@ -16,7 +16,7 @@ class Event(Model):
     name = CharField()
     place = CharField()
     address = CharField()
-    Date = DateField()
+    date = DateField()
 
     class Meta:
         database = db

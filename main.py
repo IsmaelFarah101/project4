@@ -37,7 +37,7 @@ def show_menu():
     restaurants = getRestaurants(city)
     events = getEvents(city, keyword)
     bookmarkQuestion = input('Do you want to save the restaurants and events(y/n)?: ')
-    if bookmarkQuestion == 'n' or bookmarkQuestion == 'Y':
+    if bookmarkQuestion == 'y' or bookmarkQuestion == 'Y':
         for restaurant in restaurants:
             add_restaurant(restaurant.name, restaurant.location, restaurant.price, restaurant.rating)
         for event in events:
