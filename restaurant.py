@@ -9,16 +9,18 @@ def create_table():
     with db:
         db.create_tables([Restaurant])
 
-def show():
+def show_restaurant(name):
     ##return all items in database
     try:
         return Restaurant.select()
     except Exception as e:
         print(e)
 ##adding new item database
-def add(name,location,price,rating):
+def add_restaurant(name,location,price,rating):
     try:
         newRestaurant = Restaurant(name=name, location=location, price=price, rating=rating)
         newRestaurant.save()
     except Exception as e:
         print(e) 
+
+db.close()
