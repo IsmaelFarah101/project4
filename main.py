@@ -1,5 +1,5 @@
 from weather import getWeather
-
+from restaurant_api import getRestaurants
 
 def main():
 
@@ -12,7 +12,7 @@ def show_menu():
     print("You can find country codes at https://en.wikipedia.org/wiki/List_of_ISO_3166_country_codes ")
     city, country_code = getInput()
     getWeather(city, country_code)
-
+    getRestaurants(city)
 
 
 
