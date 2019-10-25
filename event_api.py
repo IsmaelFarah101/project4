@@ -11,7 +11,7 @@ class EventData:
         self.date = date
 
     def __str__(self):
-        return (f'Name: {self.name} | Place: {self.place} | Address: {self.address} | Date: {self.date}')
+        return f'Name: {self.name} | Place: {self.place} | Address: {self.address} | Date: {self.date} \n'
 
 def getEvents(location, keyword):
 
@@ -34,9 +34,9 @@ def getEvents(location, keyword):
             address = event['venue_address']
             date = event['start_time']
             event_data = EventData(name, place, address, date)
-            print(name, place, address, date)
             event_list.append(event_data) # Add the needed data to the event_list
-        
+            print(event_data)
+            
         return event_list
 
     except Exception as e:
