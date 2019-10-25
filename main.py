@@ -13,11 +13,9 @@ def main():
 
 def show_menu():
     print("****Travel App****")
-    menu = input('1. Enter 1 to Search New Events/Restaurants/Weather: \n 2. Enter 2 to Search Through Bookmarks: ')
-    while menu:
+    menu = int(input('1. Enter 1 to Search New Events/Restaurants/Weather: \n 2. Enter 2 to Search Through Bookmarks: '))
+    while True:
         if menu == 1:
-            print
-            
             print("Enter a city and country code to see"
               " the weather, top restaurants\n and concerts")
             print("You can find country codes at https://en.wikipedia.org/wiki/List_of_ISO_3166_country_codes ")
@@ -28,8 +26,9 @@ def show_menu():
         elif menu == 2:
             bookmark_question = input('1. Enter 1 to get all Events \n Enter 2 to search Event by name: \n Enter 3 to get all Restaurants ')
         else:
-            break
-        menu = input('1. Enter 1 to Search New Events/Restaurants/Weather: \n 2. Enter 2 to Search Through Bookmarks: ')
+            menu = int(input('1. Enter 1 to Search New Events/Restaurants/Weather: \n 2. Enter 2 to Search Through Bookmarks: '))
+            
+        
 
         
     city, country_code, keyword = getInput()
