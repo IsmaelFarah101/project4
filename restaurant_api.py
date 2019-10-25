@@ -29,7 +29,7 @@ def getRestaurants(location):
         data = requests.get(url, params=params, headers=headers).json()
         restaurants = data['businesses']
         restaurant_list = []
-
+        print("--RESTAURANT INFORMATION IN "+location.upper()+"--\n")
         for restaurant in restaurants:
             ##getting all the needed columns and appending it to a list
             name = restaurant['name']

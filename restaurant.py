@@ -9,6 +9,7 @@ def create_table():
         db.create_tables([Restaurant])
 
 def show_restaurant():
+        
     ##return all items in database
     try:
         return Restaurant.get()

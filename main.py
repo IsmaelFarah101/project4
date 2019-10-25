@@ -3,18 +3,24 @@ from restaurant_api import getRestaurants
 from event_api import getEvents
 from restaurant import *
 from event import *
-def main():
+import restaurant
+import event
 
+def main():
+    restaurant.create_table()
+    event.create_table()
     show_menu()
 
 def show_menu():
-    print("****Travel App****\n"
-              "Enter a city and country code to see"
-              " the weather, top restaurants\n and concerts")
-    print("You can find country codes at https://en.wikipedia.org/wiki/List_of_ISO_3166_country_codes ")
+    print("****Travel App****")
     menu = input('1. Enter 1 to Search New Events/Restaurants/Weather: \n 2. Enter 2 to Search Through Bookmarks: ')
     while menu:
         if menu == 1:
+            print
+            
+            print("Enter a city and country code to see"
+              " the weather, top restaurants\n and concerts")
+            print("You can find country codes at https://en.wikipedia.org/wiki/List_of_ISO_3166_country_codes ")
             city, country_code, keyword = getInput()
             getWeather(city, country_code)
             restaurants = getRestaurants(city)

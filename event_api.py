@@ -28,7 +28,7 @@ def getEvents(location, keyword):
 
         event_list = []
 
-        print(f'\n --EVENT INFORMATION IN {location}-- \n')
+        print(f'\n --EVENT INFORMATION IN {location.upper()}-- \n')
 
         for event in events_data:
             name = event['title']
