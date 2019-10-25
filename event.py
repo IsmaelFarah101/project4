@@ -12,11 +12,17 @@ def create_table():
 def show_event():
     ##return all items in database
     try:
-        return Event.select()
+        return Event.get()
     except Exception as e:
         print(e)
     
     db.close()
+
+def show_all_event(name):
+    try:
+        return Event.get(Event.name == name )
+    except Exception as e:
+        print(e)
 ##adding new item database
 def add_event(name, place, address, date):
     try:

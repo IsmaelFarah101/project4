@@ -2,17 +2,21 @@ from travel_db import Restaurant
 from peewee import *
 
 db = SqliteDatabase('travel.db')
-
 db.connect()
 ##create the database tables and connect to database
 def create_table():
     with db:
         db.create_tables([Restaurant])
 
-def show_restaurant(name):
+def show_restaurant():
     ##return all items in database
     try:
-        return Restaurant.select()
+        return Restaurant.get()
+    except Exception as e:
+        print(e)
+def show_all_restaurant(name):
+    try:
+        return Restaurant.get(Restaurant.name == name)
     except Exception as e:
         print(e)
 ##adding new item database
