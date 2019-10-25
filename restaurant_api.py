@@ -41,6 +41,6 @@ def getRestaurants(location):
             restaurant_list.append(restaurant_data)
             print(restaurant_data)
         ##returning the list of classes
-        ##return restaurant_list
+        return restaurant_list
     except Exception as e:
         raise e  
