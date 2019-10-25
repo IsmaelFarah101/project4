@@ -22,20 +22,15 @@ def show_menu():
             city, country_code, keyword = getInput()
             getWeather(city, country_code)
             restaurants = getRestaurants(city)
-            events = getEvents(city, keyword)    
+            events = getEvents(city, keyword)
+            bookmarkQuestion = input('Do you want to save the restaurants and events(y/n)?: ')    
+            break
         elif menu == 2:
             bookmark_question = input('1. Enter 1 to get all Events \n Enter 2 to search Event by name: \n Enter 3 to get all Restaurants ')
+            break    
         else:
             menu = int(input('1. Enter 1 to Search New Events/Restaurants/Weather: \n 2. Enter 2 to Search Through Bookmarks: '))
-            
-        
 
-        
-    city, country_code, keyword = getInput()
-    getWeather(city, country_code)
-    restaurants = getRestaurants(city)
-    events = getEvents(city, keyword)
-    bookmarkQuestion = input('Do you want to save the restaurants and events(y/n)?: ')
     if bookmarkQuestion == 'y' or bookmarkQuestion == 'Y':
         for restaurant in restaurants:
             add_restaurant(restaurant.name, restaurant.location, restaurant.price, restaurant.rating)
