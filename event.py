@@ -25,19 +25,3 @@ def add_event(name, place, address, date):
         print(e)
     
     db.close()
-
-def delete_event(name):
-    try:
-        Event.delete().where(Event.name == name).execute()
-    except Exception as e:
-        print(e)
-
-    db.close()
-
-def delete_all_event():
-    try:
-        Event.delete().execute(None)
-    except Exception as e:
-        print(e)
-    
-    db.close()
