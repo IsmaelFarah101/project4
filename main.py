@@ -13,7 +13,7 @@ def main():
 
 def show_menu():
     print("****Travel App****")
-    menu = int(input('1. Enter 1 to Search New Events/Restaurants/Weather: \n 2. Enter 2 to Search Through Bookmarks: '))
+    menu = int(input('Enter 1 to Search New Events/Restaurants/Weather: \nEnter 2 to Search Through Bookmarks:\n'))
     while True:
         if menu == 1:
             print("Enter a city and country code to see"
@@ -26,10 +26,10 @@ def show_menu():
             bookmarkQuestion = input('Do you want to save the restaurants and events(y/n)?: ')    
             break
         elif menu == 2:
-            bookmark_question = input('1. Enter 1 to get all Events \n Enter 2 to search Event by name: \n Enter 3 to get all Restaurants ')
+            bookmark_question = input('Enter 1 to get all Events \nEnter 2 to search Event by name: \nEnter 3 to get all Restaurants \n')
             break    
         else:
-            menu = int(input('1. Enter 1 to Search New Events/Restaurants/Weather: \n 2. Enter 2 to Search Through Bookmarks: '))
+            menu = int(input('Enter 1 to Search New Events/Restaurants/Weather: \nEnter 2 to Search Through Bookmarks: '))
 
     if bookmarkQuestion == 'y' or bookmarkQuestion == 'Y':
         for restaurant in restaurants:
