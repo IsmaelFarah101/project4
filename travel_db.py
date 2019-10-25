@@ -6,7 +6,6 @@ db = SqliteDatabase('travel.db')
 class Restaurant(Model):
     name = CharField()
     location: CharField()
-    term = CharField()
     price = CharField()
     rating = FloatField()
 
@@ -17,7 +16,7 @@ class Event(Model):
     name = CharField()
     place = CharField()
     address = CharField()
-    DATA = DateField()
+    Date = DateField()
 
     class Meta:
         database = db
