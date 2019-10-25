@@ -9,14 +9,7 @@ def create_table():
     with db:
         db.create_tables([Event])
 
-def show_event(name):
-    ##return all items in database
-    try:
-        return Event.get(Event.name == name)
-    except Exception as e:
-        print(e)
-    
-    db.close()
+
 
 def show_all_event():
     try:

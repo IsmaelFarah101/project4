@@ -8,18 +8,15 @@ def create_table():
     with db:
         db.create_tables([Restaurant])
 
-def show_restaurant():
+def show_all_restaurant():
+    try:
+        data =  Restaurant.get()
+        for restaurant in data:
+                print(restaurant)
+
+    except Exception as e:
+        print("couldn't show all restaurant")
         
-    ##return all items in database
-    try:
-        return Restaurant.get()
-    except Exception as e:
-        print(e)
-def show_all_restaurant(name):
-    try:
-        return Restaurant.get(Restaurant.name == name)
-    except Exception as e:
-        print(e)
 ##adding new item database
 def add_restaurant(name,location,price,rating):
     try:

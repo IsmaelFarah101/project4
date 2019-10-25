@@ -1,10 +1,10 @@
 from weather_api import getWeather
 from restaurant_api import getRestaurants
 from event_api import getEvents
-from restaurant import *
-from event import *
 import restaurant
 import event
+from event import *
+from restaurant import *
 
 def main():
     restaurant.create_table()
@@ -23,24 +23,37 @@ def show_menu():
             getWeather(city, country_code)
             restaurants = getRestaurants(city)
             events = getEvents(city, keyword)
-            bookmarkQuestion = input('Do you want to save the restaurants and events(y/n)?: ')    
+            while True:
+                bookmarkQuestion = input('Do you want to save the restaurants and events(y/n)?: ')    
+                if bookmarkQuestion == 'y' or bookmarkQuestion == 'Y':
+                    for restaurant in restaurants:
+                        add_restaurant(restaurant.name, restaurant.location, restaurant.price, restaurant.rating)
+                    for event in events:
+                        add_event(event.name, event.place, event.address, event.date)
+                    print('Thank You')
+                    break
+                elif bookmarkQuestion == 'n' or bookmarkQuestion == 'N':
+                    print('Thank You')
+                    break
+                else:
+                    bookmarkQuestion = input('Do you want to save the restaurants and events(y/n)?: ')
             break
         elif menu == 2:
-            bookmark_question = input('Enter 1 to get all Events \nEnter 2 to search Event by name: \nEnter 3 to get all Restaurants \nEnter 4 ')
-            break    
+            bookmark_question = int(input('Enter 1 to get all Events \nEnter 2 to get all Restaurants \n'))
+            while True:
+                if bookmark_question == 1:
+                    show_all_event()
+                    break
+                elif bookmark_question == 2:
+                    show_all_restaurant()
+                    break
+                bookmark_question = int(input('Enter 1 to get all Events \nEnter 2 to get all Restaurants'))
+            break
+                  
         else:
             menu = int(input('Enter 1 to Search New Events/Restaurants/Weather: \nEnter 2 to Search Through Bookmarks: '))
-
-    if bookmarkQuestion == 'y' or bookmarkQuestion == 'Y':
-        for restaurant in restaurants:
-            add_restaurant(restaurant.name, restaurant.location, restaurant.price, restaurant.rating)
-        for event in events:
-            add_event(event.name, event.place, event.address, event.date)
-        print('Thank You')
-    elif bookmarkQuestion == 'n' or bookmarkQuestion == 'N':
-        print('Thank You')
-    else:
-        print()
+            
+    
 def getInput():
     
     city = input(("City: "))
