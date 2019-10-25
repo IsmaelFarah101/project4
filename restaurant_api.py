@@ -16,12 +16,11 @@ class RestaurantData():
         
 
 
-def main(location,term):
+def getRestaurants(location):
     try:
         ##query and header for yelp api sorting by rating
         headers = {'Authorization' : f'Bearer {yelp_key}'}
         params = {'location': location,
-            'term': term,
             'price': '1, 2, 3',
             'sort_by': 'rating',
             'limit':5
@@ -39,12 +38,9 @@ def main(location,term):
             price = restaurant['price']
             rating = restaurant['rating']
             restaurant_data =  RestaurantData(name, location, restaurant_type,rating,price)
-            print(restaurant_data)
             restaurant_list.append(restaurant_data)
+            print(restaurant_data)
         ##returning the list of classes
-        return restaurant_list
+        ##return restaurant_list
     except Exception as e:
         raise e  
-
-if __name__ == '__main__':
-    main('Minneapolis','Japanese')
