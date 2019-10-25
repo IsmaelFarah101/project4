@@ -1,4 +1,4 @@
-from weather import getWeather
+from weather_api import getWeather
 from restaurant_api import getRestaurants
 from event_api import getEvents
 from restaurant import *

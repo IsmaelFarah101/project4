@@ -3,7 +3,8 @@ import os
 from datetime import datetime
 
 def getWeather(city, country_code):
-    query = {'q': city + "," + country_code, 'units': 'imperial', 'appid': '9db10307657b0ff8224b0da642ac57f7'}
+    weather_key = os.environ.get('WEATHER_KEY')
+    query = {'q': city + "," + country_code, 'units': 'imperial', 'appid': weather_key}
     url = 'http://api.openweathermap.org/data/2.5/forecast'
     try:
         data = requests.get(url, params=query).json()
