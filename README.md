@@ -12,7 +12,19 @@
 ![p4](https://user-images.githubusercontent.com/46719712/67989796-e776cc00-fc01-11e9-8913-a0a8604f789f.JPG)
 
 ## Getting Started
-### Clone this project on to your own machine from the root directory, from the command line run
-### Macs python3 -m venv env | env/bin/activate
-### Windows PC python -m venv env | env/script/activate
-### Than to install the requirements run pip install -r reuqirements.txt
+#### Clone this project on to your own machine from the root directory, from the command line run
+#### Macs python3 -m venv env | env/bin/activate
+#### Windows PC python -m venv env | env/script/activate
+#### Install the requirements run pip install -r requirements.txt
+#### From the command line to load the keys run source env.sh
+
+## Starting the Program
+#### Upon running the application will prompt the user to either search for a new city, or show saved data about restaurants or events
+#### If you choose to search for a new city, you will be prompted to enter a city, country code and event type, the application will than display a five day weather forecast and some top restaurants and events in the city of your choice
+#### If you choose to show saved data you will be asked whether you want to view restaurants or events, it will read from the database to show you your saved data
+
+## API Used
+#### YELP API
+#### Eventful API
+#### Weather API
+
