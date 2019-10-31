@@ -11,3 +11,8 @@
 
 ![p4](https://user-images.githubusercontent.com/46719712/67989796-e776cc00-fc01-11e9-8913-a0a8604f789f.JPG)
 
+## Getting Started
+Clone this project on to your own machine from the root directory, from the command line run
+Macs python3 -m venv env | env/bin/activate
+Windows PC python -m venv env | env/script/activate
+Than to install the requirements run pip install -r reuqirements.txt
