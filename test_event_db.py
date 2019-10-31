@@ -26,14 +26,14 @@ class BaseTestCase(TestCase):
     def test_add_event(self):
         event.add_event("Concert Name", "Concert Place", "Concert Address", "10/31/2019 00:00:00")
         
-        self.compare_add_test("Concert Name", "Concert Place", "Concert Address","10/31/2019 00:00:00")
+        self.compare_add_event_test("Concert Name", "Concert Place", "Concert Address","10/31/2019 00:00:00")
     
     def test_show_event(self):
         event.add_event("Concert Name", "Concert Place", "Concert Address", "10/31/2019 00:00:00")
-        self.compare_show_test()
+        self.compare_show_event_test()
     
     @patch('builtins.print')
-    def compare_show_restaurant_test(self, expected_display):
+    def compare_show_event_test(self, expected_display):
         event.show_all_event()
         expected_display.assert_called_once_with("Concert Name")
 
