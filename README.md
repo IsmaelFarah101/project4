@@ -23,8 +23,15 @@
 #### If you choose to search for a new city, you will be prompted to enter a city, country code and event type, the application will than display a five day weather forecast and some top restaurants and events in the city of your choice
 #### If you choose to show saved data you will be asked whether you want to view restaurants or events, it will read from the database to show you your saved data
 
+## To Run Test
+#### To test the event and restaurant database:
+###### Python -m unittest test_event_db.py 
+###### Python -m unittest test_restaurant_db.py
+#### To test the event and restaurant API:
+###### Python -m unittest test_api.py
+
 ## API Used
 #### YELP API
 #### Eventful API
-#### Weather API
+#### OpenWeather weather API
 
