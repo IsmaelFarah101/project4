@@ -1,8 +1,12 @@
 import requests
+import requests_cache
 import os
 from restaurant_class import *
 
-def getRestaurantData():
+##caching requests
+requests_cache.install_cache()
+
+def getRestaurantData(location):
     try:
         # Create the environment variable and import yelp api key
         yelp_key = os.environ.get('YELP_KEY')
@@ -18,7 +22,7 @@ def getRestaurantData():
         data = requests.get(url, params=params, headers=headers).json()
         return data['businesses']
     except Exception as e:
-
+        print(e)
 # Create getRestaurants function to fetch the needed data for events info
 def getRestaurants(location):
     try:
@@ -45,4 +49,4 @@ def getRestaurants(location):
         # Returning the list of classes
         return restaurant_list
     except Exception as e:
-        print('Please enter valid city name')
+        print('Please enter valid restaurnat city name')

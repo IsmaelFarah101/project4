@@ -1,6 +1,10 @@
 import requests
 import os
+import requests_cache
 from event_class import * 
+
+##caching requests
+requests_cache.install_cache()
 
 def getEventData(location,keyword):
     try:
@@ -13,7 +17,7 @@ def getEventData(location,keyword):
         data = requests.get(url, params=params).json()
         return data['events']['event']
     except Exception as e:
-
+        print(e)
 # Create getEvents function to fetch the needed data for events info
 def getEvents(location, keyword):
     try:
@@ -38,5 +42,5 @@ def getEvents(location, keyword):
         return event_list
 
     except Exception as e:
-        print('Please enter valid city name')
+        print('Please enter valid event city name')
         print(e)
