@@ -23,15 +23,15 @@ class BaseTestCase(TestCase):
         test_db_url.close()
     
     def test_add_event(self):
-        restaurant.add_restaurant("Restaurant Name", "Restaurant Location", "45", "2")
+        restaurant.add_restaurant("Restaurant Name", "Restaurant Location", "2", "45.0")
         
-        self.compare_db_to_expected("Restaurant Name", "Restaurant Location", "45", "2")
+        self.compare_db_to_expected("Restaurant Name", "Restaurant Location", "2", "45.0")
     
-    def compare_db_to_expected(self, expected_name, expected_location, expected_rating, expected_price):
+    def compare_db_to_expected(self, expected_name, expected_location, expected_price, expected_rating):
 
         restaurant_data = Restaurant.select()
         for restaurant in restaurant_data:
             self.assertEqual(restaurant.name, expected_name)
-            self.assertEqual(restaurant.location, expected_location)
-            self.assertEqual(restaurant.rating, expected_rating)
             self.assertEqual(restaurant.price, expected_price)
+            self.assertEqual(restaurant.rating, float(expected_rating))
+            
