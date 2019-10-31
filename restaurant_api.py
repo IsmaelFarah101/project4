@@ -18,6 +18,7 @@ def getRestaurantData():
         data = requests.get(url, params=params, headers=headers).json()
         return data['businesses']
     except Exception as e:
+        print(e)
 
 # Create getRestaurants function to fetch the needed data for events info
 def getRestaurants(location):

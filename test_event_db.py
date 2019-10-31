@@ -5,6 +5,7 @@ import restaurant_class
 from travel_db import Event
 import event
 import restaurant
+from unittest.mock import patch
 
 test_db_url = SqliteDatabase('test_event_travel.db')
 
@@ -25,10 +26,18 @@ class BaseTestCase(TestCase):
     def test_add_event(self):
         event.add_event("Concert Name", "Concert Place", "Concert Address", "10/31/2019 00:00:00")
         
-
-        self.compare_db_to_expected("Concert Name", "Concert Place", "Concert Address","10/31/2019 00:00:00")
+        self.compare_add_test("Concert Name", "Concert Place", "Concert Address","10/31/2019 00:00:00")
     
-    def compare_db_to_expected(self, expected_name, expected_place, expected_address, expected_date):
+    def test_show_event(self):
+        event.add_event("Concert Name", "Concert Place", "Concert Address", "10/31/2019 00:00:00")
+        self.compare_show_test()
+    
+    @patch('builtins.print')
+    def compare_show_restaurant_test(self, expected_display):
+        event.show_all_event()
+        expected_display.assert_called_once_with("Concert Name")
+
+    def compare_add_event_test(self, expected_name, expected_place, expected_address, expected_date):
 
         event_data = Event.select()
         for event in event_data:
