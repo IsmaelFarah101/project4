@@ -4,7 +4,7 @@ from restaurant_class import *
 ##import yelp api key
 yelp_key = os.environ.get('YELP_KEY')
 
-def getRestaurants(location):
+def getRestaurantData(location):
     try:
         ##query and header for yelp api sorting by rating
         headers = {'Authorization' : f'Bearer {yelp_key}'}
@@ -15,8 +15,15 @@ def getRestaurants(location):
             }
         url = 'https://api.yelp.com/v3/businesses/search'
         data = requests.get(url, params=params, headers=headers).json()
-        restaurants = data['businesses']
+        return data['businesses']
+    except Exception as e:
+        print('')
+
+
+def getRestaurants(location):
+    try:
         restaurant_list = []
+        restaurants = getRestaurantData(location)
         print("--RESTAURANT INFORMATION IN "+location.upper()+"--\n")
         for restaurant in restaurants:
             ##getting all the needed columns and appending it to a list
