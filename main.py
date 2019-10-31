@@ -7,14 +7,25 @@ from event import *
 from restaurant import *
 
 def main():
+
+    # Create tables for restaurant and event everytime user start the program
     restaurant.create_table()
     event.create_table()
+
+    # Call the show_menu function
     show_menu()
 
 def show_menu():
+
+    # Program header
     print("****Travel App****")
+
+    # Ask the user if the user want to search for the events, restaurants, weather or bookmarks
     menu = int(input('Enter 1 to Search New Events/Restaurants/Weather: \nEnter 2 to Search Through Bookmarks:\n'))
+
+    # 
     while True:
+        
         if menu == 1:
             print("Enter a city and country code to see"
               " the weather, top restaurants\n and concerts")
@@ -23,6 +34,8 @@ def show_menu():
             getWeather(city, country_code)
             restaurants = getRestaurants(city)
             events = getEvents(city, keyword)
+
+            # 
             while True:
                 bookmarkQuestion = input('Do you want to save the restaurants and events(y/n)?: ')    
                 if bookmarkQuestion == 'y' or bookmarkQuestion == 'Y':
@@ -53,14 +66,14 @@ def show_menu():
         else:
             menu = int(input('Enter 1 to Search New Events/Restaurants/Weather: \nEnter 2 to Search Through Bookmarks: '))
             
-    
+# User input for the city, country code, and keyword
 def getInput():
-    
     city = input(("City: "))
     country_code = input(("Country Code: "))
     keyword = input(("Enter keyword for event: "))
     return city, country_code, keyword
-    # receiving user input
+
+# User input for the name of the restaurant 
 def getRestaurantName():
     name = input('Enter name of restaurant: ')
     return name
