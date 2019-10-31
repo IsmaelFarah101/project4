@@ -2,8 +2,7 @@ import requests
 import os
 from event_class import * 
 
-# Create getEvents function to fetch the needed data for events info
-def getEvents(location, keyword):
+def getEventData(location,keyword):
     try:
         # Create the environment variable and import the event key
         event_key = os.environ.get('EVENT_KEY')
@@ -12,16 +11,21 @@ def getEvents(location, keyword):
         url = 'http://api.eventful.com/json/events/search?'
         params = {'keyword:' : keyword, 'location' : location, 'page_size' : 5, 'app_key' : event_key}
         data = requests.get(url, params=params).json()
-        events_data = data['events']['event']
+        return data['events']['event']
+    except Exception as e:
 
+# Create getEvents function to fetch the needed data for events info
+def getEvents(location, keyword):
+    try:
         # List for event data
         event_list = []
-
+        #get api data
+        events = getEventData(location,keyword)
         # Event header
         print(f'\n --EVENT INFORMATION IN {location.upper()}-- \n')
 
         # Add the needed data for the event info to be displayed
-        for event in events_data:
+        for event in events:
             name = event['title']
             place = event['venue_name']
             address = event['venue_address']

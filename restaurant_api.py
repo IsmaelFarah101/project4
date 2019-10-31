@@ -2,8 +2,7 @@ import requests
 import os
 from restaurant_class import *
 
-# Create getRestaurants function to fetch the needed data for events info
-def getRestaurants(location):
+def getRestaurantData():
     try:
         # Create the environment variable and import yelp api key
         yelp_key = os.environ.get('YELP_KEY')
@@ -17,11 +16,18 @@ def getRestaurants(location):
             }
         url = 'https://api.yelp.com/v3/businesses/search'
         data = requests.get(url, params=params, headers=headers).json()
-        restaurants = data['businesses']
+        return data['businesses']
+    except Exception as e:
 
+# Create getRestaurants function to fetch the needed data for events info
+def getRestaurants(location):
+    try:
+        
         # List for restaurant data
         restaurant_list = []
 
+        #get the api data
+        restaurants = getRestaurantData(location)
         # Restaurant header
         print("--RESTAURANT INFORMATION IN "+location.upper()+"--\n")
 
