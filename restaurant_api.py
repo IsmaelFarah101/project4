@@ -23,10 +23,7 @@ def getRestaurantData(location):
         return data['businesses']
     except Exception as e:
         print(e)
-<<<<<<< HEAD
 
-=======
->>>>>>> 90093ff846a39dcfcdeef8b73a7abf36cd0366d4
 # Create getRestaurants function to fetch the needed data for events info
 def getRestaurants(location):
     try:
